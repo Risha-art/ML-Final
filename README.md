@@ -35,7 +35,7 @@ The notebook is configured to run in Google Colab with data files loaded from Go
    - Run preprocessing, EDA, and modeling end-to-end
    - Generate every figure and table reported in the writeup
 
-Expected total runtime: **20–30 minutes**, dominated by hyperparameter tuning (~2 minutes) and the station ablation study (~10 minutes, 750 model fits).
+Expected total runtime: **20–30 minutes**, dominated by hyperparameter tuning (~2 minutes) and the station ablation study (~5 minutes, 750 model fits).
 
 ## Dependencies
 
@@ -48,7 +48,7 @@ All libraries are pre-installed in Colab. If running locally, the notebook requi
 
 ## Reproducibility
 
-All results in the writeup are reproducible from this notebook with a single `Run all`. Random seeds are fixed (`random_state=0`) for the headline train/test split and grid search, and the 50-split ablation uses seeds `0..49` for the per-split splits.
+All results in the writeup are reproducible by running the cells in sequential order, from top to bottom. 
 
 ## Method summary
 
@@ -66,5 +66,5 @@ All results in the writeup are reproducible from this notebook with a single `Ru
 
 ## Notes
 
-- The notebook reads data from `/content/drive/MyDrive/` (Colab's mount point). If running locally, update the file paths in the data-loading cells (cells 5, 7, 9, 11, and 13).
+- The notebook reads data from `/content/drive/MyDrive/` (Colab's mount point). If running locally, update the file paths in the data-loading cells.
 - The notebook's cell ordering is significant: the grid search cell must run before the main training cell, since the latter pulls hyperparameters from the former.
